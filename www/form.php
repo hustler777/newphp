@@ -2,6 +2,14 @@
 
 include __DIR__ . '/views/form.php';
 
-require_once __DIR__ . '/models/DB.php';
+require_once __DIR__ . '/models/news.php';
 
-DB_add($_POST['title'],$_POST['text']);
+if(empty($_POST['title']) && empty($_POST['text'])) {
+    echo 'Заполните все поля';
+    die;
+}else if(empty($_POST['title']) || empty($_POST['text'])) {
+    echo 'Заполните все поля';
+    die;
+}else {
+    news_add($_POST['title'], $_POST['text']);
+}

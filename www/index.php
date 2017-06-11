@@ -1,9 +1,11 @@
 <?php
 
-require_once __DIR__ . '/models/DB.php';
+require_once __DIR__ . '/models/news.php';
+
 if(empty($_GET)) {
-    $items = DB_all();
+    $items = news_getAll();
+    include __DIR__ . '/views/all.php';
 }else{
-    $items = DB_one($_GET['id']);
+    $items = news_getOne($_GET['id']);
+    include __DIR__ . '/views/one.php';
 }
-include __DIR__ . '/views/index.php';
