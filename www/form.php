@@ -2,7 +2,7 @@
 
 include __DIR__ . '/views/form.php';
 
-require_once __DIR__ . '/models/news.php';
+require_once __DIR__ . '/models/News.php';
 
 if(empty($_POST['title']) && empty($_POST['text'])) {
     echo 'Заполните все поля';
@@ -11,5 +11,5 @@ if(empty($_POST['title']) && empty($_POST['text'])) {
     echo 'Заполните все поля';
     die;
 }else {
-    news::add($_POST['title'], $_POST['text']);
+    News::add($_POST['title'], $_POST['text']);
 }

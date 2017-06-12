@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__ . '/models/news.php';
+require_once __DIR__ . '/models/News.php';
 
 if(empty($_GET)) {
-    $items = news::getAll();
+    $items = News::getAll();
     include __DIR__ . '/views/all.php';
 }else{
-    $items = news::getOne($_GET['id']);
+    $items = News::getOne($_GET['id']);
     include __DIR__ . '/views/one.php';
 }
