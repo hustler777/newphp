@@ -1,18 +1,25 @@
 <?php
 
-require_once __DIR__ . '/../functions/db.php';
+require_once __DIR__ . '/../classes/DB.php';
 
-function news_getAll (){
-    $sql = 'SELECT * FROM news ORDER BY date DESC';
-    return db_query($sql);
-}
+class news
+{
+    public $id;
+    public $title;
+    public $text;
 
-function news_getOne ($id){
-    $sql = 'SELECT * FROM news WHERE id =' . $id;
-    return db_query($sql);
-}
+    public static function getAll(){
+        $db = new DB;
+        return $db->DB_query('SELECT * FROM news ORDER BY date DESC', 'news');
+    }
 
-function news_add($title,$text){
-    $sql = "INSERT INTO news (title,text) VALUES ('$title','$text')";
-    db_execute($sql);
+    public static function getOne($id){
+        $db = new DB;
+        return $db->DB_query('SELECT * FROM news WHERE id =' . $id, 'news');
+    }
+
+    public static function add($title,$text){
+        $db = new DB;
+        return $db->DB_execute("INSERT INTO news (title,text) VALUES ('$title','$text')", 'news');
+    }
 }

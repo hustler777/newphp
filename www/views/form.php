@@ -5,6 +5,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/">На главную</a>
     <form action="http://newphp/form.php" method="post" >
         Заголовок: <input type="text" name="title"><br><br>
         <p>Текст статьи:</p>

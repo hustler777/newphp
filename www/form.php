@@ -11,5 +11,5 @@ if(empty($_POST['title']) && empty($_POST['text'])) {
     echo 'Заполните все поля';
     die;
 }else {
-    news_add($_POST['title'], $_POST['text']);
+    news::add($_POST['title'], $_POST['text']);
 }
